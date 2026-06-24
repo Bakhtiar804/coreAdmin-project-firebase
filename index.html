@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth - User Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="auth-body">
+
+    <div class="auth-container">
+        <div class="auth-box" id="login-box">
+            <h2>Welcome Back</h2>
+            <p>Please login to your account</p>
+            <form id="login-form" onsubmit="event.preventDefault();">
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="login-email" placeholder="Email Address" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                </div>
+                <button type="submit" id="loginBtn" class="btn-primary">Login</button>
+            </form>
+
+            <div class="divider"><span>or</span></div>
+
+            <button id="continueWithGoogleBtn" class="btn-google google-login-btn">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google Logo">
+                Continue with Google
+            </button>
+
+            <p class="auth-toggle">Don't have an account? <span id="go-to-signup">Sign Up</span></p>
+        </div>
+
+        <div class="auth-box hidden" id="signup-box">
+            <h2>Create Account</h2>
+            <p>Get started with your free account</p>
+            <form id="signup-form" onsubmit="event.preventDefault();">
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="signup-email" placeholder="Email Address" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="signup-password" placeholder="Password" required>
+                </div>
+               
+                <button type="submit" id="signUpBtn"  class="btn-primary">Sign Up</button>
+            </form>
+
+            <div class="divider"><span>or</span></div>
+
+            <button class="btn-google google-login-btn">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google Logo">
+                Continue with Google
+            </button>
+
+            <p class="auth-toggle">Already have an account? <span id="go-to-login">Login</span></p>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+    <script>
+        // UI toggle between login and signup
+        document.getElementById('go-to-signup').addEventListener('click', () => {
+            document.getElementById('login-box').classList.add('hidden');
+            document.getElementById('signup-box').classList.remove('hidden');
+        });
+        document.getElementById('go-to-login').addEventListener('click', () => {
+            document.getElementById('signup-box').classList.add('hidden');
+            document.getElementById('login-box').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>

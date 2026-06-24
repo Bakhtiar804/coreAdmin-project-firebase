@@ -1,0 +1,630 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    --card-bg: rgba(255, 255, 255, 0.06);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent-primary: #6366f1;
+    --accent-hover: #4f46e5;
+    --accent-success: #10b981;
+    --accent-danger: #f43f5e;
+    --accent-warning: #f59e0b;
+    --glass-blur: blur(12px);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   1. AUTH PAGE (Premium Glassmorphism)
+   ========================================== */
+.auth-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-gradient);
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 440px;
+    padding: 20px;
+}
+
+.auth-box {
+    background: var(--card-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--card-border);
+    padding: 40px 35px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.auth-box h2 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+    background: linear-gradient(to right, #fff, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.auth-box p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    transition: color 0.3s;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 16px 14px 48px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    color: #fff;
+    outline: none;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.input-group input:focus + i {
+    color: var(--accent-primary);
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: var(--accent-primary);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.auth-toggle {
+    margin-top: 25px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.auth-toggle span {
+    color: var(--accent-primary);
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* ==========================================
+   Countinue with Google
+   ========================================== */
+
+
+/* Divider (OR line) */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.divider:not(:empty)::before { margin-right: .5em; }
+.divider:not(:empty)::after { margin-left: .5em; }
+
+/* Google Button Styling */
+.btn-google {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.btn-google img {
+    width: 20px;
+    height: 20px;
+}
+
+.btn-google:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #fff;
+}
+
+
+
+/* ==========================================
+   2. NAVBAR
+   ========================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: var(--glass-blur);
+    padding: 18px 5%;
+    border-bottom: 1px solid var(--card-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav-brand {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(to right, #6366f1, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#user-display-email {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.btn-danger-sm {
+    background: rgba(244, 63, 94, 0.1);
+    color: var(--accent-danger);
+    border: 1px solid rgba(244, 63, 94, 0.2);
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-danger-sm:hover {
+    background: var(--accent-danger);
+    color: white;
+}
+
+/* ==========================================
+   3. DASHBOARD GRID LAYOUT
+   ========================================== */
+.dashboard-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    gap: 30px;
+    padding: 40px 5%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+    .dashboard-wrapper { grid-template-columns: 1fr; }
+}
+
+.card {
+    background: var(--card-bg);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: -0.3px;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 14px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    color: #fff;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--accent-primary);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.btn-success {
+    background: var(--accent-success);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+.btn-success:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(16, 185, 129, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--card-border);
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+
+/* ==========================================
+   4. MODERN TABLE STYLING
+   ========================================== */
+.table-responsive {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    background: rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+table th, table td {
+    padding: 16px 20px;
+}
+
+table th {
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--card-border);
+}
+
+table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    font-size: 15px;
+    color: #e2e8f0;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* Action Buttons */
+.action-btns {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-tbl {
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.btn-view { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+.btn-view:hover { background: #3b82f6; color: white; }
+
+.btn-edit { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+.btn-edit:hover { background: #f59e0b; color: white; }
+
+.btn-delete { background: rgba(244, 63, 94, 0.15); color: #f43f5e; border: 1px solid rgba(244, 63, 94, 0.3); }
+.btn-delete:hover { background: #f43f5e; color: white; }
+
+/* ==========================================
+   5. MODAL POPUP
+   ========================================== */
+.modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(8px);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 100;
+}
+
+.modal-content {
+    background: #1e1b4b;
+    border: 1px solid var(--card-border);
+    padding: 35px;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 460px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    animation: scaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes scaleUp {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.close-modal {
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: color 0.2s;
+}
+
+.close-modal:hover { color: #fff; }
+
+.modal-body p {
+    margin-bottom: 14px;
+    font-size: 16px;
+    color: #e2e8f0;
+}
+
+.modal-body strong {
+    color: var(--text-muted);
+    font-weight: 500;
+    display: inline-block;
+    width: 110px;
+}
+
+/* Helper Class */
+.hidden { display: none !important; }
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   6. EXTRA RESPONSIVE RESPONSIVE (425px & Below)
+   ========================================== */
+@media (max-width: 480px) {
+    /* Main Layout changes to single column */
+    .dashboard-wrapper {
+        padding: 15px 12px;
+        gap: 20px;
+    }
+
+    /* Navbar adjustment */
+    .navbar {
+        padding: 12px 15px;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .nav-user {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    #user-display-email {
+        font-size: 12px;
+        max-width: 180px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    /* Card Padding reduction */
+    .card {
+        padding: 20px 15px;
+        border-radius: 16px;
+    }
+
+    .card h3 {
+        font-size: 18px;
+        margin-bottom: 18px;
+    }
+
+    /* Auth Box padding for small devices */
+    .auth-box {
+        padding: 30px 20px;
+    }
+
+    /* CRITICAL: Making Table readable on 425px mobile screen */
+    .table-responsive {
+        border: none;
+        background: transparent;
+    }
+
+    /* Force table to behave like block mobile cards */
+    table, create-element, thead, tbody, th, td, tr { 
+        display: block; 
+    }
+    
+    /* Hide table headers completely for mobile grid layout */
+    thead tr { 
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    tr {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--card-border);
+        border-radius: 12px;
+        margin-bottom: 15px;
+        padding: 10px;
+    }
+    
+    td { 
+        /* Behave like a "row" */
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
+        position: relative;
+        padding-left: 45% !important; 
+        text-align: right;
+        font-size: 14px;
+    }
+
+    td:last-child {
+        border-bottom: none;
+    }
+    
+    /* Inject Label Headers Dynamically using CSS pseudo-elements */
+    td:before { 
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        width: 40%; 
+        padding-right: 10px; 
+        white-space: nowrap;
+        text-align: left;
+        font-weight: 600;
+        color: var(--text-muted);
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+    
+    /* Labels context mapping */
+    td:nth-of-type(1):before { content: "Name"; }
+    td:nth-of-type(2):before { content: "Email"; }
+    td:nth-of-type(3):before { content: "Age"; }
+    td:nth-of-type(4):before { content: "City"; }
+    td:nth-of-type(5):before { content: "Profession"; }
+    td:nth-of-type(6):before { content: "Actions"; }
+
+    /* Action buttons centering in mobile cards */
+    .action-btns {
+        justify-content: flex-end;
+        width: 100%;
+    }
+
+    .btn-tbl {
+        width: 32px;
+        height: 32px;
+    }
+
+    /* Modal scaling for mobile */
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .modal-body strong {
+        width: 90px;
+        font-size: 14px;
+    }
+    
+    .modal-body p {
+        font-size: 14px;
+    }
+}

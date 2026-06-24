@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - User Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-brand"><i class="fas fa-users-cog"></i> CoreAdmin</div>
+        <div class="nav-user">
+            <span id="user-display-email">Loading...</span>
+            <button id="logout-btn" class="btn-danger-sm"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+    </nav>
+
+    <div class="dashboard-wrapper">
+        <div class="card form-card">
+            <h3 id="form-title">Add New User</h3>
+            <form id="user-data-form">
+                <input type="hidden" id="edit-user-id">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="user-fullname" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="user-email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="number" id="user-age" required placeholder="25">
+                </div>
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" id="user-city" required placeholder="Karachi">
+                </div>
+                <div class="form-group">
+                    <label>Profession</label>
+                    <input type="text" id="user-profession" required placeholder="Developer">
+                </div>
+                <button type="submit" id="form-submit-btn" class="btn-success">Add User</button>
+                <button type="button" id="cancel-edit-btn" class="btn-secondary hidden">Cancel Edit</button>
+            </form>
+        </div>
+
+        <div class="card table-card">
+            <h3>Registered Users</h3>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Age</th>
+                            <th>City</th>
+                            <th>Profession</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="users-table-body">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="view-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>User Details</h3>
+                <span class="close-modal" id="close-modal-btn">&times;</span>
+            </div>
+            <div class="modal-body" id="modal-details-content">
+                </div>
+        </div>
+    </div>
+
+    <script type="module" src="DashBoard.js"></script>
+</body>
+</html>
