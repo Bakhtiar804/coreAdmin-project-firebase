@@ -1,4 +1,4 @@
-import {auth , createUserWithEmailAndPassword , signInWithEmailAndPassword ,  onAuthStateChanged , GoogleAuthProvider } from "./FireBaseConfig.js";
+import {auth , createUserWithEmailAndPassword , signInWithEmailAndPassword ,  onAuthStateChanged , GoogleAuthProvider , signInWithPopup} from "./FireBaseConfig.js";
 
 
 // Sign Up Form
@@ -43,13 +43,6 @@ signUpBtn.addEventListener("click", () => {
 });
 
 
-
-
-
-
-
-
-
 //    Login Function 
 
 
@@ -79,10 +72,13 @@ signInWithEmailAndPassword(auth, email, password)
 
 //  continue with google button function
 
+
+const continueWithGoogleBtnSignUp = document.getElementById('continueWithGoogleBtnSignUp')
 const continueWithGoogleBtn = document.getElementById("continueWithGoogleBtn");
+
 const provider = new GoogleAuthProvider();
 
-continueWithGoogleBtn.addEventListener("click", () => {
+const continueWithGoogleFunction = () => {
 
 signInWithPopup(auth, provider)
   .then((result) => {
@@ -104,14 +100,14 @@ signInWithPopup(auth, provider)
     console.log("Error signing in with Google:", errorCode, errorMessage, email, credential);
   });
 
-})
+};
 
 
+continueWithGoogleBtn.addEventListener("click" , continueWithGoogleFunction)
+continueWithGoogleBtnSignUp.addEventListener("click" , continueWithGoogleFunction)
 
 
-
-
-
+//  Firebase User Check
 
 
 onAuthStateChanged(auth, (user) => {
@@ -122,14 +118,14 @@ onAuthStateChanged(auth, (user) => {
     console.log("Is on auth page:", authPage);
 
   if (user && authPage && !isSigninUp) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/auth.user
+
     const uid = user.uid;
 
     window.location.replace("DashBoard.html");
     // ...
   } else {
-    // User is signed out
+   
     // ...
   }
 });
+

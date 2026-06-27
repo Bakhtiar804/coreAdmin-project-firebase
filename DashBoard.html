@@ -20,7 +20,7 @@
     <div class="dashboard-wrapper">
         <div class="card form-card">
             <h3 id="form-title">Add New User</h3>
-            <form id="user-data-form">
+            <form id="user-data-form" onsubmit="event.preventDefault()">
                 <input type="hidden" id="edit-user-id">
                 <div class="form-group">
                     <label>Full Name</label>
@@ -42,8 +42,11 @@
                     <label>Profession</label>
                     <input type="text" id="user-profession" required placeholder="Developer">
                 </div>
+                 <div class="form-group">
+                    <label>Your Id</label>
+                    <input type="text" id="user-id" required placeholder="jhon654u3Doe">
+                </div>
                 <button type="submit" id="form-submit-btn" class="btn-success">Add User</button>
-                <button type="button" id="cancel-edit-btn" class="btn-secondary hidden">Cancel Edit</button>
             </form>
         </div>
 
@@ -58,6 +61,7 @@
                             <th>Age</th>
                             <th>City</th>
                             <th>Profession</th>
+                            <th>User Id</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
